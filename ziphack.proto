@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package ziphack;
+
+service Ziphack{
+ rpc GetServerResponse(Message) returns (MessageResponse) {}
+
+}
+
+
+message Message{
+ bytes passwords = 1;
+ bytes archive = 2;
+}
+
+message MessageResponse{
+ string password = 1;
+ optional string error = 2;
+}
