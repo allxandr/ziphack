@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\rziphack.proto\x12\x07ziphack\"-\n\x07Message\x12\x11\n\tpasswords\x18\x01 \x01(\x0c\x12\x0f\n\x07\x61rchive\x18\x02 \x01(\x0c\"A\n\x0fMessageResponse\x12\x10\n\x08password\x18\x01 \x01(\t\x12\x12\n\x05\x65rror\x18\x02 \x01(\tH\x00\x88\x01\x01\x42\x08\n\x06_error2L\n\x07Ziphack\x12\x41\n\x11GetServerResponse\x12\x10.ziphack.Message\x1a\x18.ziphack.MessageResponse\"\x00\x62\x06proto3'
+  serialized_pb=b'\n\rziphack.proto\x12\x07ziphack\"?\n\x07Message\x12\x11\n\tpasswords\x18\x01 \x01(\x0c\x12\x0f\n\x07\x61rchive\x18\x02 \x01(\x0c\x12\x10\n\x08priority\x18\x03 \x01(\x05\"A\n\x0fMessageResponse\x12\x10\n\x08password\x18\x01 \x01(\t\x12\x12\n\x05\x65rror\x18\x02 \x01(\tH\x00\x88\x01\x01\x42\x08\n\x06_error2L\n\x07Ziphack\x12\x41\n\x11GetServerResponse\x12\x10.ziphack.Message\x1a\x18.ziphack.MessageResponse\"\x00\x62\x06proto3'
 )
 
 
@@ -47,6 +47,13 @@ _MESSAGE = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='priority', full_name='ziphack.Message.priority', index=2,
+      number=3, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -60,7 +67,7 @@ _MESSAGE = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=26,
-  serialized_end=71,
+  serialized_end=89,
 )
 
 
@@ -103,8 +110,8 @@ _MESSAGERESPONSE = _descriptor.Descriptor(
       create_key=_descriptor._internal_create_key,
     fields=[]),
   ],
-  serialized_start=73,
-  serialized_end=138,
+  serialized_start=91,
+  serialized_end=156,
 )
 
 _MESSAGERESPONSE.oneofs_by_name['_error'].fields.append(
@@ -137,8 +144,8 @@ _ZIPHACK = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=140,
-  serialized_end=216,
+  serialized_start=158,
+  serialized_end=234,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetServerResponse',

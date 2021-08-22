@@ -20,8 +20,8 @@ class ZipHackClient(object):
         # bind the client and the server
         self.stub = pb2_grpc.ZiphackStub(self.channel)
 
-    def send_message(self, passwords, archive):
-        message = pb2.Message(passwords = passwords, archive = archive)
+    def send_message(self, passwords, archive, priority):
+        message = pb2.Message(passwords = passwords, archive = archive, priority = priority)
         return self.stub.GetServerResponse(message)
 
 def get_file(fn):
@@ -32,6 +32,9 @@ def main():
     parser = argparse.ArgumentParser(description='Provide passwords and archive')
     parser.add_argument("-p", dest="passwords", required=True)
     parser.add_argument("archive", type=str)
+    parser.add_argument('--priority-high', dest='priority', action='store_true')
+    parser.add_argument('--priority-low', dest='priority', action='store_false')
+    parser.set_defaults(priority=True)
 
     args = parser.parse_args()
     if not os.path.isfile(args.passwords):
@@ -42,7 +45,8 @@ def main():
         return
 
     client = ZipHackClient()
-    result = client.send_message(passwords = get_file(args.passwords), archive = get_file(args.archive))
+
+    result = client.send_message(passwords = get_file(args.passwords), archive = get_file(args.archive), priority = int(args.priority))
     print result
 
 if __name__ == '__main__':

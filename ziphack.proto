@@ -11,6 +11,7 @@ service Ziphack{
 message Message{
  bytes passwords = 1;
  bytes archive = 2;
+ int32 priority = 3;
 }
 
 message MessageResponse{

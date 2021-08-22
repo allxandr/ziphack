@@ -1,5 +1,6 @@
+#----THIS FILE IS USED FOR TESTS ONLY---------
 import os 
-from Queue import Queue
+import Queue
 from threading import Thread
 import time
 
@@ -65,7 +66,7 @@ def brutte2(filename, passwords, workers_count):
     return "not found"
 
 
-def brutte_thread(filename, passwords, workers_count):
+def brutte_thread(filename, passwords, workers_count, priority):
     '''thread based version of brutte force'''
     queue = Queue() # - queue for saving passwords
     found = Queue() # - queue for saving valid passwords
